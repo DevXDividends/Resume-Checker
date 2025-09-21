@@ -39,6 +39,7 @@ def create_tables():
         filename TEXT,
         score REAL,
         verdict TEXT,
+        feedback TEXT,
         upload_date TEXT,
         FOREIGN KEY(jd_id) REFERENCES job_descriptions(id)
     )
