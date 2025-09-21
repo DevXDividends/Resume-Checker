@@ -3,6 +3,8 @@ from werkzeug.security import generate_password_hash, check_password_hash
 from datetime import datetime
 
 DB_NAME = "resume_system.db"
+
+
 def create_tables():
     conn = sqlite3.connect(DB_NAME)
     c = conn.cursor()
@@ -45,30 +47,12 @@ def create_tables():
     # Add initial admin if it doesn't exist
     c.execute("SELECT COUNT(*) FROM admin WHERE username = ?", ("admin",))
     if c.fetchone()[0] == 0:
-        password_hash = generate_password_hash("admin123")  # change this as needed
+        password_hash = generate_password_hash("admin123")  # default admin password
         c.execute("INSERT INTO admin (username, password_hash) VALUES (?, ?)", ("admin", password_hash))
 
     conn.commit()
     conn.close()
 
-
-    # Resume table   ### i have added and extra column here
-    c.execute("""   
-    CREATE TABLE IF NOT EXISTS resumes (
-        id INTEGER PRIMARY KEY AUTOINCREMENT,
-        candidate_name TEXT,
-        jd_id INTEGER,
-        resume_text TEXT,
-        filename TEXT,
-        score REAL,
-        verdict TEXT,
-        upload_date TEXT,
-        FOREIGN KEY(jd_id) REFERENCES job_descriptions(id)
-    )
-    """)
-
-    conn.commit()
-    conn.close()
 
 # Admin helper functions
 def add_admin(username, password):
