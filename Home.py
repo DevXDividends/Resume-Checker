@@ -1,6 +1,12 @@
 import streamlit as st
-from database import create_tables
-create_tables()  # ensures tables exist on startup
+##from database import create_tables
+## create_tables()  # ensures tables exist on startup
+import os
+from database import DB_NAME
+
+if os.path.exists(DB_NAME):
+    os.remove(DB_NAME)
+    print("Old database deleted.")
 
 
 st.set_page_config(
