@@ -1,4 +1,7 @@
 import streamlit as st
+from database import create_tables
+create_tables()  # ensures tables exist on startup
+
 
 st.set_page_config(
     page_title="AI Powered Resume Checker & Reviewer",
