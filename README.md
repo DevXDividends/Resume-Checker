@@ -17,6 +17,7 @@ Install dependencies:
 pip install -r requirements.txt
 
 How to Run Locally
+
 streamlit run Home.py
 
 This will open the Home page in the browser where u can navigate 
