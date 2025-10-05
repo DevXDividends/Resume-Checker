@@ -1,7 +1,8 @@
 import streamlit as st
-from database import create_tables,add_admin
-create_tables()  # ensures tables exist on startup
+from database import create_tables, add_admin
 import sqlite3
+
+create_tables()  # ensures tables exist on startup
 
 def ensure_admin_exists():
     conn = sqlite3.connect("resume_system.db")
@@ -16,8 +17,8 @@ def ensure_admin_exists():
     else:
         print("ℹ️ Admin already exists.")
 
-# Run this on every app start
 ensure_admin_exists()
+
 
 
 
