@@ -2,7 +2,7 @@ import streamlit as st
 from database import create_tables, add_admin
 import sqlite3
 
-create_tables()  # ensures tables exist on startup
+create_tables()  
 
 def ensure_admin_exists():
     conn = sqlite3.connect("resume_system.db")
