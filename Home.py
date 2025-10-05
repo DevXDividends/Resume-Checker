@@ -1,7 +1,6 @@
 import streamlit as st
-from database import create_tables
+from database import create_tables,add_admin
 create_tables()  # ensures tables exist on startup
-from database import add_admin
 import sqlite3
 
 def ensure_admin_exists():
